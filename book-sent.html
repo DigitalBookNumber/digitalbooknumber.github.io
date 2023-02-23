@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalBookNumber | New DBN</title>
+    <link rel="shortcut icon" href="./dbn.png" type="image/png">
+    <center>
+        <div class="navbar">
+            <a href="./">Home</a>
+            |
+            <a href="./new-dbn.html">Request your DBN</a>
+            |
+            <a href="./privacy-policy.html">Privacy policy</a>
+            |
+            <a href="./terms-of-use.html">Terms of use</a>
+        </div>
+        <br>
+        <h1>Your digital book has been sent for review.</h1>
+        <input type="button" id="backhome" onclick="home()" value="Back to home">
+        <input style="visibility:hidden;" type="text" id="size">
+        
+    </center>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a.here {
+            color:gray;
+        }
+    </style>
+    <script>
+        document.getElementById("backhome").style = "width: " + document.querySelector('#size').offsetWidth + "px;";
+        document.querySelector('#size').remove();
+
+        function home() {
+            window.location.href = "./"
+        }
+	</script>
+</head>
+<body>
+    
+</body>
+</html>
