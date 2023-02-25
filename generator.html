@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalBookNumber | Generator</title>
+    <link rel="shortcut icon" href="./dbn.png" type="image/png">
+    <center>
+        <div class="navbar">
+            <a href="./">Home</a>
+            |
+            <a href="./new-dbn.html">Request your DBN</a>
+            |
+            <a href="./generator.html" class="here">Generator</a>
+            |
+            <a href="./privacy-policy.html">Privacy policy</a>
+            |
+            <a href="./terms-of-use.html">Terms of use</a>
+        </div>
+        <br>
+        <h1>Basic DigitalBookNumber (BDBN)</h1>
+        <p>Basic DigitalBookNumber (BDBN) is the basic version of DBN.</p>
+        <h2>What is the difference between DBN and BDBN?</h2>
+        <p>The DBN contains a smaller number, as the size of the BDBN can be large depending on the information being passed.</p>
+        <br>
+        
+        <div class="form" style="border: solid 1px #ffffff">
+            <input type="text" name="bookname" id="bookname" required="" placeholder="Book name"><br>
+            <input type="number" name="bookpages" id="bookpages" required="" placeholder="Book pages"><br>
+            <input type="text" name="bookauthors" id="bookauthors" required="" placeholder="Book authors"><br>
+            <input type="text" name="bookpc" id="bookpc" placeholder="Book publishing company"><br>
+            <input type="text" name="bookpd" id="bookpd" required="" placeholder="Book publication date"><br><br>
+            <input type="button" id="bookcontinue" onclick="send()" value="Continue">
+        </div>
+        <br>
+        <h5 id="bdbn"></h5>
+        <input type="text" id="size" style="visibility:hidden;">
+    </center>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a.here {
+            color:gray;
+        }
+        .form {
+            width: 674px;
+            height: fit-content;
+        }
+    </style>
+    <script>
+        document.getElementById("bookcontinue").style = "width: " + document.querySelector('#size').offsetWidth + "px;";
+
+        function send() {
+            let bookname = document.getElementById("bookname");
+            let bookpages = document.getElementById("bookpages");
+            let bookauthors = document.getElementById("bookauthors");
+            let bookpc = document.getElementById("bookpc");
+            let bookpd = document.getElementById("bookpd");
+            let bdbn = document.getElementById("bdbn");
+            let bn = bookname.value;
+            let bp = bookpages.value;
+            let ba = bookauthors.value;
+            let bpc = bookpc.value;
+            let bpd = bookpd.value;
+
+            if (bpc) {
+                bdbn.innerText = encode(bn) + "-" + encode(bp) + "-" + encode(ba) + "-" + encode(bpc) + "-" + encode(bpd);
+            } else {
+                bdbn.innerText = encode(bn) + "-" + encode(bp) + "-" + encode(ba) + "-" + encode(bpd)
+            }
+        }
+        function encode(text) {
+            // 0
+            text = text.replaceAll("0", "AA");
+            // 1
+            text = text.replaceAll("1", "BB");
+            // 2
+            text = text.replaceAll("2", "CC");
+            // 3
+            text = text.replaceAll("3", "DD");
+            // 4
+            text = text.replaceAll("4", "EE");
+            // 5
+            text = text.replaceAll("5", "FF");
+            // 6
+            text = text.replaceAll("6", "GG");
+            // 7
+            text = text.replaceAll("7", "HH");
+            // 8
+            text = text.replaceAll("8", "II");
+            // 9
+            text = text.replaceAll("9", "JJ");
+
+            // A
+            text = text.replaceAll("a", "0");
+            text = text.replaceAll("A", "0");
+            // B
+            text = text.replaceAll("b", "1");
+            text = text.replaceAll("B", "1");
+            // C
+            text = text.replaceAll("c", "2");
+            text = text.replaceAll("C", "2");
+            // D
+            text = text.replaceAll("d", "3");
+            text = text.replaceAll("D", "3");
+            // E
+            text = text.replaceAll("e", "4");
+            text = text.replaceAll("E", "4");
+            // F
+            text = text.replaceAll("f", "5");
+            text = text.replaceAll("F", "5");
+            // G
+            text = text.replaceAll("g", "6");
+            text = text.replaceAll("G", "6");
+            // H
+            text = text.replaceAll("h", "7");
+            text = text.replaceAll("H", "7");
+            // I
+            text = text.replaceAll("i", "8");
+            text = text.replaceAll("I", "8");
+            // J
+            text = text.replaceAll("j", "9");
+            text = text.replaceAll("J", "9");
+            // K
+            text = text.replaceAll("k", "0A");
+            text = text.replaceAll("K", "0A");
+            // L
+            text = text.replaceAll("l", "1B");
+            text = text.replaceAll("L", "1B");
+            // M
+            text = text.replaceAll("m", "2C");
+            text = text.replaceAll("M", "2C");
+            // N
+            text = text.replaceAll("n", "3D");
+            text = text.replaceAll("N", "3D");
+            // O
+            text = text.replaceAll("o", "4E");
+            text = text.replaceAll("O", "4E");
+            // P
+            text = text.replaceAll("p", "5F");
+            text = text.replaceAll("P", "5F");
+            // Q
+            text = text.replaceAll("q", "6G");
+            text = text.replaceAll("Q", "6G");
+            // R
+            text = text.replaceAll("r", "7H");
+            text = text.replaceAll("R", "7H");
+            // S
+            text = text.replaceAll("s", "8I");
+            text = text.replaceAll("S", "8I");
+            // T
+            text = text.replaceAll("t", "9J");
+            text = text.replaceAll("T", "9J");
+            // U
+            text = text.replaceAll("u", "AK");
+            text = text.replaceAll("U", "AK");
+            // V
+            text = text.replaceAll("v", "BL");
+            text = text.replaceAll("V", "BL");
+            // W
+            text = text.replaceAll("w", "CM");
+            text = text.replaceAll("W", "CM");
+            // X
+            text = text.replaceAll("x", "DN");
+            text = text.replaceAll("X", "DN");
+            // Y
+            text = text.replaceAll("y", "EO");
+            text = text.replaceAll("Y", "EO");
+            // Z
+            text = text.replaceAll("z", "FP");
+            text = text.replaceAll("Z", "FP");
+
+            // !
+            text = text.replaceAll("!", "");
+            // @
+            text = text.replaceAll("@", "");
+            // #
+            text = text.replaceAll("#", "");
+            // $
+            text = text.replaceAll("$", "");
+            // %
+            text = text.replaceAll("%", "");
+            // ¨
+            text = text.replaceAll("¨", "");
+            // &
+            text = text.replaceAll("&", "");
+            // *
+            text = text.replaceAll("*", "");
+            // ()
+            text = text.replaceAll("(", "");
+            text = text.replaceAll(")", "");
+            // -
+            text = text.replaceAll("-", "");
+            // =
+            text = text.replaceAll("=", "");
+            // +
+            text = text.replaceAll("+", "");
+            // []
+            text = text.replaceAll("[", "");
+            text = text.replaceAll("]", "");
+            // {}
+            text = text.replaceAll("{", "");
+            text = text.replaceAll("}", "");
+            // ~
+            text = text.replaceAll("~", "");
+            // ^
+            text = text.replaceAll("^", "");
+            // º
+            text = text.replaceAll("º", "");
+            // ª
+            text = text.replaceAll("ª", "");
+            // ´
+            text = text.replaceAll("´", "");
+            // `
+            text = text.replaceAll("`", "");
+            // "
+            text = text.replaceAll('"', "");
+            // '
+            text = text.replaceAll("'", "");
+            // \
+            text = text.replaceAll("\\", "");
+            // |
+            text = text.replaceAll("|", "");
+            // /
+            text = text.replaceAll("/", "");
+            // ?
+            text = text.replaceAll("?", "");
+            // ;
+            text = text.replaceAll(";", "");
+            // :
+            text = text.replaceAll(":", "");
+            // °
+            text = text.replaceAll("°", "");
+            // .
+            text = text.replaceAll(".", "");
+            // ,
+            text = text.replaceAll(",", "");
+            // <
+            text = text.replaceAll("<", "");
+            // >
+            text = text.replaceAll(">", "");
+            // 
+            text = text.replaceAll(" ", "");
+
+            return text;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
